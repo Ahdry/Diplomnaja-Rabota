@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация пользователей</title>
+</head>
+<body>
+    <h1>Регистрация виртуальных пользователей</h1>
+    <form method="post">
+        <label for="num_users">Введите количество пользователей:</label>
+        <input type="number" id="num_users" name="num
+
+_users" required>
+        <button type="submit">Зарегистрировать</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Зарегистрированные пользователи:</h2>
+    <ul>
+        {% for user in registered_users %}
+            <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
